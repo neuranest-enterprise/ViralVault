@@ -3,15 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixer Suite Generated App</title>
+    <title>ViralVault - AI Content Prediction Engine | Know If Your Post Will Go Viral</title>
+    <meta name="description" content="AI-powered content prediction engine that analyzes your posts and predicts viral probability with 89% accuracy. Get instant viral scores, engagement predictions, and optimization tips.">
+    <meta name="keywords" content="viral content, AI prediction, social media, content creator, viral score, engagement prediction, TikTok, Instagram, Twitter">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://viralvault.app/">
+    <meta property="og:title" content="ViralVault - Know If Your Post Will Go Viral">
+    <meta property="og:description" content="AI-powered content prediction engine with 89% accuracy. Predict viral potential before you post.">
+    <meta property="og:image" content="https://viralvault.app/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://viralvault.app/">
+    <meta property="twitter:title" content="ViralVault - Know If Your Post Will Go Viral">
+    <meta property="twitter:description" content="AI-powered content prediction engine with 89% accuracy. Predict viral potential before you post.">
+    <meta property="twitter:image" content="https://viralvault.app/preview.png">
+    
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MP1L1DMR0E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MP1L1DMR0E');
+    </script>
+    
+    <!-- Hotjar Tracking -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
 </head>
 <body>
-    <div id="app">
-        <h1>🚀 Welcome to Your New App!</h1>
-        <p>This app was created by Fixer Suite - your AI-powered development platform.</p>
-        <div id="content"></div>
+    <!-- Landing Page Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>ViralVault</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn-login">Login</button>
+                    <button class="btn-signup">Start Free Trial</button>
+                </div>
+            </nav>
+            
+            <div class="hero-content">
+                <h1>Know If Your Post Will Go Viral<br><span class="highlight">Before You Hit Publish</span></h1>
+                <p class="hero-subtitle">AI-powered content prediction engine that analyzes your posts and predicts viral probability with 89% accuracy</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">2.3M+</div>
+                        <div class="stat-label">Posts Analyzed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-label">Prediction Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15x</div>
+                        <div class="stat-label">Average Reach Increase</div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <button class="btn-primary" id="startAnalysis">
+                        <i class="fas fa-magic"></i>
+                        Analyze Your Content Now
+                    </button>
+                    <p class="cta-note">✨ Free analysis • No credit card required</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Analysis Tool -->
+    <section class="analysis-tool" id="analysisSection" style="display: none;">
+        <div class="container">
+            <h2>🎯 AI Content Analysis</h2>
+            
+            <div class="upload-area">
+                <div class="upload-box" id="uploadBox">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drop your content here</h3>
+                    <p>Upload image, video, or paste text</p>
+                    <input type="file" id="fileInput" accept="image/*,video/*" style="display: none;">
+                    <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
+                        Choose File
+                    </button>
+                </div>
+                
+                <div class="text-input">
+                    <textarea id="contentText" placeholder="Or paste your caption/text content here..."></textarea>
+                    <div class="hashtag-input">
+                        <input type="text" id="hashtags" placeholder="#hashtag1 #hashtag2 #hashtag3">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn-analyze" id="analyzeBtn">
+                <i class="fas fa-brain"></i>
+                Analyze Viral Potential
+            </button>
+            
+            <!-- Results Section -->
+            <div class="results" id="results" style="display: none;">
+                <div class="viral-score">
+                    <div class="score-circle">
+                        <div class="score-number" id="viralScore">0</div>
+                        <div class="score-label">Viral Score</div>
+                    </div>
+                </div>
+                
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <i class="fas fa-eye"></i>
+                        <h4>Predicted Views</h4>
+                        <div class="metric" id="predictedViews">0</div>
+                    </div>
+                    <div class="analysis-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Engagement Rate</h4>
+                        <div class="metric" id="engagementRate">0%</div>
+                    </div>
+                    <div class="analysis-card">
+                        <i class="fas fa-share"></i>
+                        <h4>Share Probability</h4>
+                        <div class="metric" id="shareProbability">0%</div>
+                    </div>
+                    <div class="analysis-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Best Time to Post</h4>
+                        <div class="metric" id="bestTime">--</div>
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h4>🚀 AI Recommendations</h4>
+                    <div id="aiRecommendations"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Creators Choose ViralVault</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Analysis</h3>
+                    <p>Get viral predictions in under 3 seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-target"></i>
+                    <h3>89% Accuracy</h3>
+                    <p>Proven prediction accuracy across all platforms</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>All Platforms</h3>
+                    <p>TikTok, Instagram, Twitter, YouTube support</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Real-time Trends</h3>
+                    <p>Live trending analysis and optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <ul>
+                        <li>5 analyses per day</li>
+                        <li>Basic viral score</li>
+                        <li>Community support</li>
+                    </ul>
+                    <button class="btn-secondary" onclick="redirectToStripe('free')">Start Free</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <h3>Pro Creator</h3>
+                    <div class="price">$29<span>/month</span></div>
+                    <ul>
+                        <li>Unlimited analyses</li>
+                        <li>Advanced AI insights</li>
+                        <li>Hashtag optimization</li>
+                        <li>Best time predictions</li>
+                        <li>Content scheduling</li>
+                    </ul>
+                    <button class="btn-primary" onclick="redirectToStripe('pro')">Start 7-Day Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Agency</h3>
+                    <div class="price">$99<span>/month</span></div>
+                    <ul>
+                        <li>Team collaboration</li>
+                        <li>White-label reports</li>
+                        <li>Custom AI training</li>
+                        <li>Priority support</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="btn-secondary" onclick="redirectToStripe('agency')">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showSignup">Sign up free</a></p>
+        </div>
     </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Start Your Free Trial</h2>
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
