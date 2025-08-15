@@ -24,11 +24,11 @@ const upload = multer({
 
 // AI Service Configuration
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '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'
+  apiKey: process.env.OPENAI_API_KEY || 'your-openai-api-key-here'
 });
 
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || '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'
+  apiKey: process.env.ANTHROPIC_API_KEY || 'your-anthropic-api-key-here'
 });
 
 // Viral Analysis Engine
